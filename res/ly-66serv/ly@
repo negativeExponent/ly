@@ -1,0 +1,16 @@
+[main]
+@type = longrun
+@version = 0.0.1
+@description = "ly tui display manager"
+@user = ( root )
+
+[start]
+@execute = ( agetty -nl /usr/bin/ly @I "${BAUD_RATE}" "${TERM_NAME}" )
+
+[environment]
+BAUD_RATE=38400
+TERM_NAME=linux
+StandardInput=tty
+TTYPath=/dev/@I
+TTYReset=yes
+TTYVHangup=yes
